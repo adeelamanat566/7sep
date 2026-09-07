@@ -1,7 +1,7 @@
 services:
 
   flask:
-    build: adeelamanat56/guest-book:${TAG}
+    image: adeelamanat56/guest-book:${TAG}
     container_name: guestbook-app
     ports:
       - "5000:5000"
