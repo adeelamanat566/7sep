@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guest Book</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <h1>Guest Book</h1>
+
+    <form action="/add" method="POST">
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Enter your name"
+            required
+        >
+
+        <input
+            type="text"
+            name="message"
+            placeholder="Enter your message"
+            required
+        >
+
+        <button type="submit">Save</button>
+
+    </form>
+
+    <h2>Messages</h2>
+
+    {% for message in messages %}
+
+        <div class="message">
+            <strong>{{ message.name }}</strong>
+            <p>{{ message.message }}</p>
+        </div>
+
+    {% endfor %}
+
+</body>
+</html>
