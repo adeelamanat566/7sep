@@ -1,4 +1,3 @@
-
 pipeline {
 
     agent any
@@ -44,19 +43,18 @@ pipeline {
             }
         }
 
-        stage('Run') {
+        stage('Deploy') {
             steps {
                 sh '''
-                    docker stop guest-book || true
-                    docker rm guest-book || true
+                    export TAG=$TAG
 
-                    docker run -d \
-                        --name guest-book \
-                        -p 5000:5000 \
-                        $IMAGE:$TAG
+                    docker compose down || true
+
+                    docker compose pull
+
+                    docker compose up -d
                 '''
             }
         }
     }
 }
-
