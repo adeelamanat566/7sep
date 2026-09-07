@@ -4,7 +4,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE = 'adeelamanat/guest-book'
+        IMAGE = 'adeelamanat56/guest-book'
         TAG = "${BUILD_NUMBER}"
     }
 
