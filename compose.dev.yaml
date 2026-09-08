@@ -2,7 +2,7 @@ services:
 
   flask:
     image: adeelamanat56/guest-book:${TAG}
-    container_name: guestbook-app
+    container_name: guestbook-dev-app
     ports:
       - "5000:5000"
     environment:
@@ -16,12 +16,12 @@ services:
 
   mysql:
     image: mysql:8
-    container_name: guestbook-mysql
+    container_name: guestbook-dev-mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: guestbook
     volumes:
-      - mysql_data:/var/lib/mysql
+      - dev_mysql_data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
@@ -30,4 +30,4 @@ services:
       retries: 10
 
 volumes:
-  mysql_data:
+  dev_mysql_data:
