@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   demo:
-    runs-on: self_hosted
+    runs-on: ubuntu-latest
     steps:
       - name: test
         run: echo "hello"
