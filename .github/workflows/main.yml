@@ -1,0 +1,11 @@
+name: adeelamanat
+on:
+  push:
+    branches:
+      - main
+jobs:
+  demo:
+    runs-on: self_hosted
+    steps:
+      - name: test
+        run: echo "hello"
